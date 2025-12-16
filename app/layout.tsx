@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Intuitive Pixel — Portfolio',
@@ -42,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           };
         `}</Script>
       </head>
-      <body className={`${inter.className} bg-bg text-text antialiased`}>{children}</body>
+      <body className="bg-bg text-text antialiased font-sans">{children}</body>
     </html>
   );
 }

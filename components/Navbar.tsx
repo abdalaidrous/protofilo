@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const links = [
-  { href: '#projects', label: 'Projects' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#contact', label: 'Contact' },
-];
+  { href: { pathname: '/', hash: 'work' }, label: 'Projects' },
+  { href: { pathname: '/', hash: 'resume' }, label: 'Experience' },
+  { href: { pathname: '/', hash: 'contact' }, label: 'Contact' },
+] as const;
 
 export function Navbar() {
   return (
@@ -29,12 +29,12 @@ export function Navbar() {
         backdropFilter: 'blur(12px)',
       }}
     >
-      <Link href="#">
+      <Link href={{ pathname: '/', hash: 'home' }}>
         <span style={{ fontWeight: 800, letterSpacing: 0.6 }}>Protofilio</span>
       </Link>
       <div style={{ display: 'flex', gap: '0.65rem', alignItems: 'center' }}>
         {links.map((link) => (
-          <Link key={link.href} href={link.href} style={{ color: 'var(--muted)', fontWeight: 700 }}>
+          <Link key={link.label} href={link.href} style={{ color: 'var(--muted)', fontWeight: 700 }}>
             {link.label}
           </Link>
         ))}
