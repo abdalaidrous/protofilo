@@ -1,12 +1,13 @@
 :root {
-  --bg: #05060a;
+  --bg: #021c22;
   --panel: rgba(255, 255, 255, 0.04);
   --panel-strong: rgba(255, 255, 255, 0.08);
-  --accent: #7c5dff;
-  --accent-2: #4ef0d0;
-  --text: #e8edf5;
-  --muted: #9aa0b5;
-  --card-border: rgba(255, 255, 255, 0.08);
+  --accent: #9ae6ff;
+  --accent-2: #5df0c0;
+  --accent-3: #6ed1ff;
+  --text: #e8f2ff;
+  --muted: #9cb6c4;
+  --card-border: rgba(154, 199, 208, 0.25);
 }
 
 * {
@@ -18,10 +19,10 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: radial-gradient(circle at 20% 20%, rgba(126, 93, 255, 0.14), transparent 35%),
-    radial-gradient(circle at 80% 0%, rgba(78, 240, 208, 0.12), transparent 30%),
-    radial-gradient(circle at 50% 80%, rgba(124, 93, 255, 0.1), transparent 28%),
-    var(--bg);
+  background: radial-gradient(circle at 12% 20%, rgba(71, 201, 255, 0.2), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(67, 255, 202, 0.2), transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(90, 169, 255, 0.16), transparent 28%),
+    linear-gradient(135deg, #041017, #021c22 40%, #042d34);
   color: var(--text);
   min-height: 100vh;
 }
@@ -35,10 +36,10 @@ body {
   overflow-x: hidden;
 }
 
-main {
-  max-width: 1100px;
+.page-shell {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 1.25rem 6rem;
+  padding: 3.5rem 1.25rem 5rem;
 }
 
 section {
@@ -49,15 +50,16 @@ section {
 .section-shell {
   position: relative;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(124, 93, 255, 0.35), rgba(78, 240, 208, 0.25));
-  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(154, 230, 255, 0.3), rgba(93, 240, 192, 0.25));
+  border-radius: 24px;
   overflow: hidden;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
 }
 
 .section-content {
-  background: rgba(5, 6, 10, 0.9);
+  background: rgba(5, 14, 18, 0.86);
   border: 1px solid var(--card-border);
-  border-radius: 22px;
+  border-radius: 24px;
   padding: 2.5rem;
   backdrop-filter: blur(14px);
 }
@@ -71,8 +73,12 @@ section {
   mask-image: radial-gradient(circle at 30% 20%, rgba(0, 0, 0, 0.6), transparent 48%),
     radial-gradient(circle at 80% 10%, rgba(0, 0, 0, 0.5), transparent 45%),
     radial-gradient(circle at 50% 80%, rgba(0, 0, 0, 0.4), transparent 55%);
-  opacity: 0.5;
+  opacity: 0.4;
   pointer-events: none;
+}
+
+.hero-shell {
+  margin-bottom: 2.5rem;
 }
 
 .tagline {
@@ -81,16 +87,16 @@ section {
   gap: 0.5rem;
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--accent-2);
-  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--accent);
+  font-weight: 700;
   letter-spacing: 0.4px;
   font-size: 0.85rem;
   border: 1px solid var(--card-border);
 }
 
 h1 {
-  font-size: clamp(2.4rem, 4vw, 3rem);
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
   margin: 1rem 0 0.75rem;
 }
 
@@ -120,19 +126,19 @@ p {
   border-radius: 14px;
   font-weight: 600;
   border: 1px solid var(--card-border);
-  background: linear-gradient(135deg, rgba(124, 93, 255, 0.18), rgba(78, 240, 208, 0.18));
+  background: linear-gradient(135deg, rgba(154, 230, 255, 0.22), rgba(93, 240, 192, 0.16));
   color: var(--text);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
 }
 
-.btn.secondary {
-  background: rgba(255, 255, 255, 0.04);
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 20px 60px rgba(124, 93, 255, 0.15);
-  border-color: rgba(124, 93, 255, 0.45);
+  box-shadow: 0 20px 60px rgba(99, 222, 216, 0.24);
+  border-color: rgba(154, 230, 255, 0.5);
 }
 
 .hero {
@@ -141,22 +147,29 @@ p {
   position: relative;
 }
 
+.hero-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1.2fr 0.9fr;
+  align-items: center;
+}
+
 .metrics {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.85rem;
   margin-top: 1.5rem;
 }
 
 .metric {
   padding: 1rem 1.2rem;
   border-radius: 16px;
-  background: var(--panel);
+  background: linear-gradient(145deg, rgba(10, 34, 42, 0.9), rgba(10, 28, 35, 0.6));
   border: 1px solid var(--card-border);
 }
 
 .metric strong {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
 }
 
 .badges {
@@ -189,7 +202,7 @@ p {
   position: relative;
   padding: 1.4rem;
   border-radius: 16px;
-  background: var(--panel);
+  background: radial-gradient(circle at 10% 10%, rgba(154, 230, 255, 0.06), transparent 40%), var(--panel);
   border: 1px solid var(--card-border);
   overflow: hidden;
   transition: transform 0.2s ease, border 0.2s ease;
@@ -228,6 +241,161 @@ p {
   color: var(--muted);
 }
 
+.hero-grid .social-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  color: var(--muted);
+}
+
+.social-links {
+  display: inline-flex;
+  gap: 0.65rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.social-links a {
+  color: var(--text);
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.social-links a:hover {
+  opacity: 1;
+}
+
+.profile-card {
+  position: relative;
+  border-radius: 24px;
+  padding: 1.6rem;
+  background: linear-gradient(145deg, rgba(8, 40, 48, 0.95), rgba(7, 32, 40, 0.9));
+  border: 1px solid rgba(154, 230, 255, 0.28);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.profile-photo {
+  position: absolute;
+  inset: 1rem auto auto 1rem;
+  width: 120px;
+  height: 120px;
+  border-radius: 28px;
+  background: radial-gradient(circle at 30% 30%, rgba(154, 230, 255, 0.4), rgba(6, 25, 32, 0.95));
+  display: grid;
+  place-items: center;
+}
+
+.photo-glow {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle, rgba(93, 240, 192, 0.35), transparent 55%);
+  filter: blur(24px);
+  z-index: 0;
+}
+
+.photo-placeholder {
+  position: relative;
+  z-index: 1;
+  width: 88px;
+  height: 88px;
+  border-radius: 22px;
+  border: 1px solid rgba(154, 230, 255, 0.4);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+}
+
+.profile-body {
+  margin-top: 8.5rem;
+}
+
+.profile-role {
+  color: var(--accent-2);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.badge-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.summary-grid,
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.summary-card,
+.service-card {
+  padding: 1.2rem 1.3rem;
+  border-radius: 18px;
+  border: 1px solid var(--card-border);
+  background: linear-gradient(160deg, rgba(10, 30, 36, 0.9), rgba(10, 28, 35, 0.65));
+  box-shadow: inset 0 1px 0 rgba(154, 230, 255, 0.08);
+}
+
+.service-head {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.service-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: grid;
+  gap: 0.45rem;
+  color: var(--muted);
+}
+
+.service-card li::before {
+  content: '•';
+  color: var(--accent-2);
+  margin-right: 0.4rem;
+}
+
+.toolbelt {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  border: 1px dashed var(--card-border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.toolbelt-label {
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.cta-card {
+  padding: 1.4rem;
+  border-radius: 18px;
+  border: 1px solid var(--card-border);
+  background: linear-gradient(145deg, rgba(154, 230, 255, 0.12), rgba(93, 240, 192, 0.12));
+  color: var(--text);
+}
+
 .timeline {
   display: grid;
   gap: 1rem;
@@ -254,5 +422,20 @@ p {
 @media (max-width: 768px) {
   .section-content {
     padding: 1.75rem;
+  }
+
+  .hero-grid,
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-photo {
+    position: relative;
+    inset: auto;
+    margin: 0 auto;
+  }
+
+  .profile-body {
+    margin-top: 1.5rem;
   }
 }
